@@ -2,7 +2,7 @@ import banner from '../assets/banner-stack.png'
 
 const Hero = () => {
     return (
-       <section className="bg-white">
+    <section className="bg-white">
       <div className="container mx-auto flex items-center justify-between py-10">
 
         {/* Left Content */}
@@ -16,7 +16,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-gray-500 font-medium">
+          <p className="text-gray-500 ">
             Explore frontend, backend, database, and tooling options,<br />
             compare them side by side, and put together the stack that <br />
             fits your next project.
