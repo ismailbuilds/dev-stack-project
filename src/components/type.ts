@@ -1,4 +1,4 @@
-export interface IDataType{
+export interface TechType{
   id: string;
   name: string;
   category:
