@@ -3,9 +3,10 @@ import type { TechType } from "../type";
 
 interface TechCardProps {
   technology: TechType;
+  handleAddToStack: (technology:TechType) => void
 }
 
-const TechCard = ({ technology }: TechCardProps) => {
+const TechCard = ({ technology, handleAddToStack }: TechCardProps) => {
     const { id, name, category, description, icon, rating, difficulty, badge} = technology
   return (
     <article className="flex h-full flex-col rounded-xl border
@@ -56,6 +57,8 @@ const TechCard = ({ technology }: TechCardProps) => {
 
       {/* Add to Stack Button */}
       <button
+      onClick={() => handleAddToStack(technology)}
+      
         className="w-full rounded-md bg-gray-950 px-3 py-2 text-xs 
                    font-medium text-white transition hover:bg-gray-800"
       >
