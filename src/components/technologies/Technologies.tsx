@@ -89,6 +89,7 @@ const Technologies = ({ techPromise }: TechnologiesProps) => {
               key={technology.id}
               technology={technology}
               handleAddToStack={handleAddToStack}
+              stack={stack}
             />
           ))}
         </div>
@@ -110,7 +111,8 @@ const Technologies = ({ techPromise }: TechnologiesProps) => {
       <div className="mt-4 space-y-1">
             
         {stack.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-gray-300 p-4 text-center text-xs text-gray-400">
+          <div className="rounded-lg border border-dashed border-gray-300 p-4 
+                          text-center text-xs text-gray-400">
             Your stack is empty.
           </div>
         ) : (
@@ -140,7 +142,7 @@ const Technologies = ({ techPromise }: TechnologiesProps) => {
               {/* Remove Button */}
               <button
                 onClick={()=> handleRemoveOne(technology.id)}
-                className="text-xl text-gray-400 hover:text-red-500"
+                className="text-xl text-gray-400 hover:text-red-500 cursor-pointer"
                 aria-label={`Remove ${technology.name}`}
               >
                 <FiX />
@@ -156,7 +158,7 @@ const Technologies = ({ techPromise }: TechnologiesProps) => {
           <button
           onClick={handleRemoveAll}
           className="mt-6 w-full rounded-lg border border-red-300 py-2 text-sm 
-                    font-semibold text-red-500 hover:bg-red-50"
+                    font-semibold text-red-500 hover:bg-red-50 cursor-pointer"
           >Remove All
           </button>
         )

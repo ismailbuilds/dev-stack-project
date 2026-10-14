@@ -4,6 +4,7 @@ import Hero from "./components/Hero"
 import Nav from "./components/Nav"
 import type { TechType } from "./components/type";
 import Technologies from "./components/technologies/Technologies";
+import TechnologySkeleton from "./components/TechnologySkeleton";
 
 function App() {
   const TechFetch = async (): Promise<TechType[]> => {
@@ -16,7 +17,7 @@ function App() {
     <>
      <Nav />
      <Hero />
-     <Suspense fallback={<p>Loading...</p>}>
+     <Suspense fallback={<TechnologySkeleton />}>
         <Technologies techPromise={techPromise}/>
      </Suspense>
      <Footer />

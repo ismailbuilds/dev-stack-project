@@ -1,13 +1,18 @@
 import { FaStar } from "react-icons/fa";
 import type { TechType } from "../type";
+import { FiCheck } from "react-icons/fi";
 
 interface TechCardProps {
   technology: TechType;
+  stack: TechType[];
   handleAddToStack: (technology:TechType) => void
 }
 
-const TechCard = ({ technology, handleAddToStack }: TechCardProps) => {
-    const { id, name, category, description, icon, rating, difficulty, badge} = technology
+const TechCard = ({ technology, handleAddToStack, stack }: TechCardProps) => {
+    const { name, category, description, icon, rating, difficulty, badge} = technology
+
+    const Added = stack.some((item)=> item.id === technology.id)
+    
   return (
     <article className="flex h-full flex-col rounded-xl border
      border-gray-200 bg-white p-3 shadow-sm transition duration-200 
@@ -57,12 +62,22 @@ const TechCard = ({ technology, handleAddToStack }: TechCardProps) => {
 
       {/* Add to Stack Button */}
       <button
-      onClick={() => handleAddToStack(technology)}
-      
-        className="w-full rounded-md bg-gray-950 px-3 py-2 text-xs 
-                   font-medium text-white transition hover:bg-gray-800"
+        onClick={() => handleAddToStack(technology)}
+        disabled={Added}
+        className="w-full flex rounded-md items-center justify-center bg-gray-950 cursor-pointer
+                   px-3 py-2 text-xs gap-2 disabled:cursor-not-allowed  disabled:bg-green-600
+                   font-medium text-white transition hover:bg-gray-900"
+        
       >
-        Add to Stack
+        {Added ? (
+          <>
+          
+            <FiCheck />
+            Added to Stack
+          </>
+        ) : (
+          "Add to Stack"
+        )}
       </button>
 
     </article>
@@ -70,3 +85,8 @@ const TechCard = ({ technology, handleAddToStack }: TechCardProps) => {
 };
 
 export default TechCard;
+
+// className='mt-5 flex min-h-10 items-center justify-center 
+// gap-2 rounded-lg bg-ink text-xs font-bold text-white transition 
+// hover:bg-ink-hover disabled:cursor-not-allowed 
+// disabled:bg-accent-soft disabled:text-accent-dark'
