@@ -9,7 +9,7 @@ interface TechCardProps {
 }
 
 const TechCard = ({ technology, handleAddToStack, stack }: TechCardProps) => {
-    const { name, category, description, icon, rating, difficulty, badge} = technology
+    const { name, category, description, rating, difficulty } = technology
 
     const Added = stack.some((item)=> item.id === technology.id)
     
